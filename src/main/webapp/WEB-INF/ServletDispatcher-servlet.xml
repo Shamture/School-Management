@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans	
+http://www.springframework.org/schema/beans/spring-beans.xsd
+				http://www.springframework.org/schema/context	
+http://www.springframework.org/schema/context/spring-context-4.3.xsd
+				http://www.springframework.org/schema/mvc	
+http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+http://www.springframework.org/schema/security
+http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+
+
+       <context:component-scan base-package="com.ecole" />
+       <context:annotation-config />
+	   <mvc:annotation-driven enable-matrix-variables="true"/>
+	   <mvc:resources location="/resources/" mapping="/resources/**" />
+	   
+	   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	   </bean>
+	   <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+	      <property name="driverClass" value="org.mariadb.jdbc.Driver" />
+	      <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/Ecole" />
+	      <property name="user" value="root" />
+	      <property name="password" value="youssef93" />
+	      
+	      <property name="minPoolSize" value="5"/>
+    <property name="maxPoolSize" value="5"/>
+    <property name="maxStatements" value="500"/>
+    <property name="loginTimeout" value="300"/>
+    <property name="initialPoolSize" value="5"></property>
+    <property name="checkoutTimeout" value="1000"/>
+    
+    <property name="testConnectionOnCheckin" value="true"></property>
+    <property name="idleConnectionTestPeriod" value="60"></property>
+	      
+	    
+      </bean>
+      
+      <bean id="hibernate4AnnotatedSessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>com.ecole.beans.Utilisateur</value>
+				<value>com.ecole.beans.Eleve</value>
+				<value>com.ecole.beans.Groupe</value>
+				<value>com.ecole.beans.Classe</value>
+				<value>com.ecole.beans.Matiere</value>
+				<value>com.ecole.beans.Absence</value>
+				<value>com.ecole.beans.Contact</value>
+				<value>com.ecole.beans.Remarque</value>
+				<value>com.ecole.beans.Note</value>
+				<value>com.ecole.beans.Seance</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+	  </bean>
+	  <tx:annotation-driven transaction-manager="transactionManager"/>
+	  <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	  </bean>
+	  <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="messages" />
+	  </bean>
+	
+	  <bean	id="validator"	class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property	name="validationMessageSource"	ref="messageSource"/>
+	  </bean>
+	  
+	  <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="10240000"/>
+      </bean>
+
+</beans>

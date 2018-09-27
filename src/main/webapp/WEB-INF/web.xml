@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <servlet>
+    <servlet-name>ServletDispatcher</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletDispatcher</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <display-name>AdminFilter</display-name>
+    <filter-name>AdminFilter</filter-name>
+    <filter-class>com.ecole.filters.AdminFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+    <filter-name>AdminFilter</filter-name>
+    <url-pattern>/admin/*</url-pattern>
+  </filter-mapping>
+  <filter>
+    <display-name>ProfFilter</display-name>
+    <filter-name>ProfFilter</filter-name>
+    <filter-class>com.ecole.filters.ProfFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>ProfFilter</filter-name>
+    <url-pattern>/prof/*</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+    <display-name>ParentFilter</display-name>
+    <filter-name>ParentFilter</filter-name>
+    <filter-class>com.ecole.filters.ParentFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>ParentFilter</filter-name>
+    <url-pattern>/parent/*</url-pattern>
+  </filter-mapping>
+</web-app>

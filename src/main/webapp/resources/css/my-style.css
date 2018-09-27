@@ -1,0 +1,133 @@
+@CHARSET "UTF-8";
+.school-bg{
+	
+	
+	 
+}
+
+
+/*NAV BAR*/
+#custom-bootstrap-menu.navbar-default .navbar-brand {
+    color: rgba(119, 119, 119, 1);
+}
+#custom-bootstrap-menu.navbar-default {
+    font-size: 18px;
+    background-color: rgba(250, 130, 130, 1);
+    
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(248, 248, 248, 0);
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
+    color: rgba(153, 153, 153, 1);
+    background-color: rgba(255, 237, 237, 1);
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
+    color: rgba(85, 85, 85, 1);
+    background-color: rgba(255, 130, 130, 1);
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle {
+    border-color: #ff8282;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
+#custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
+    background-color: #ff8282;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
+    background-color: #ff8282;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
+#custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: #fa8282;
+}
+#logo{
+	margin-top:-10px;
+}
+/*NAV BAR end*/
+/*404*/
+#body-404{
+	background-color:rgba(0,0,200,0.5)
+}
+#body-404 h1{
+	font-size:4em;
+	color:white;
+	text-align:center;
+	margin-top:10%;
+	
+}
+#body-404 h1 small{
+	color:white;	
+}
+#body-404 p{
+	
+	color:white;
+	text-align:center;
+	font-size:1.5em;
+	font-style:italic;
+	
+}
+#body-404 p a{
+	
+	color:#d3d7cf;
+	text-align:center;
+	
+	font-style:italic;
+	font-weight:bold;
+	
+}
+
+/*404 end*/
+.custom-section{
+	padding:40px;
+	margin-top:80px;
+	min-height:400px;
+	background-color:white;
+	 
+}
+.custom-section h1{
+	color:#ff6060;
+}
+.home-element{
+	margin-top:30px;
+}
+.home-element a{
+	 
+	font-size:1.5em;
+	color:#030654;
+	
+}
+.home-element a:hover{
+	 
+	text-decoration:none;
+	color:#ff6060;
+	
+}
+.home-element a img{
+	width:70%;
+	height:50%;
+	display:block;
+	margin:auto;
+}
+#res{
+	border:1px solid black;
+	padding:20px;
+	font-size:1.2em;
+	
+}
+#res small{
+	font-style:italic;
+}
+#add-absence{
+	margin-left:15%;
+}
+.custom-height{
+	min-height:500px;
+}
+.sous-titre{
+	display:inline-block;
+	width:200px;
+}
